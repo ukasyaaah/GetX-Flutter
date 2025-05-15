@@ -1,54 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(GetMaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final myMath = Get.put(Math());
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int data = 0;
-
-  @override
-  Widget build(BuildContext context) {
+    print('DI render');
     return Scaffold(
-      appBar: AppBar(title: Text('GetX State Management'), centerTitle: true),
+      appBar: AppBar(title: Text('GETX')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('$data', style: TextStyle(fontSize: 50)),
+            Obx(() => Text('${myMath.data}', style: TextStyle(fontSize: 60))),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      data = data - 1;
-                      print(data);
-                    });
+                    myMath.kurang();
                   },
                   child: Text('-'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      data = data + 1;
-                    });
-                    print(data);
+                    myMath.tambah();
                   },
                   child: Text('+'),
                 ),
@@ -59,4 +41,10 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+class Math extends GetxController {
+  var data = 0.obs;
+  tambah() => data++;
+  kurang() => data--;
 }
