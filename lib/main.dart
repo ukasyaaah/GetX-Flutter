@@ -1,5 +1,6 @@
 import 'package:belajar_getx/pages/first_getx.dart';
 import 'package:belajar_getx/pages/snackbar.dart';
+import 'package:belajar_getx/widgets/tebu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,28 +26,26 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
+            Tebu(
               onPressed: () {
                 Navigator.of(context).pushNamed('/first');
               },
-              child: Text(
-                'First',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              style: TextButton.styleFrom(
-                padding: EdgeInsets.all(12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(17),
-                ),
-                backgroundColor: Colors.black,
-              ),
+              text: 'First',
+              bgcolor: Colors.black,
             ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/snack');
+              },
+              text: 'SnackBar',
+              textColor: Colors.black,
+              bgcolor: Colors.cyan,
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),
