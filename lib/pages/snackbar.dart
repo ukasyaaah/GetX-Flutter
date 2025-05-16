@@ -21,6 +21,8 @@ class SnackbarGetX extends StatelessWidget {
               child: Text('Pencet Aku'),
             ),
             SizedBox(height: 10),
+
+            /// SnackBar
             Tebu(
               onPressed: () {
                 Get.snackbar(
@@ -29,11 +31,33 @@ class SnackbarGetX extends StatelessWidget {
                   snackPosition: SnackPosition.BOTTOM,
                   icon: Icon(Icons.airplane_ticket_rounded),
                   margin: EdgeInsets.all(12),
+                  duration: Duration(seconds: 3),
                 );
               },
-              text: 'Dari Bawah',
+              text: 'SnackBar dari Bawah',
               bgcolor: Colors.deepPurpleAccent,
             ),
+            SizedBox(height: 10),
+
+            /// Dialog
+            Tebu(
+              onPressed: () {
+                Get.defaultDialog(
+                  title: 'Konfirmasi Jawaban',
+                  middleText: 'Apa kamu sudah yakin dengan jawaban mu?',
+                  textConfirm: 'Iya',
+                  onConfirm: () => Navigator.pop(context),
+                  textCancel: 'Belum',
+                  titlePadding: EdgeInsets.all(24),
+                  contentPadding: EdgeInsets.all(24),
+                );
+              },
+              text: 'Ini Dialog',
+              bgcolor: Colors.deepOrange,
+            ),
+            SizedBox(height: 10),
+
+            /// Dialog
           ],
         ),
       ),
