@@ -1,3 +1,4 @@
+import 'package:belajar_getx/pages/bottomsheet_getx.dart';
 import 'package:belajar_getx/pages/first_getx.dart';
 import 'package:belajar_getx/pages/snackbar.dart';
 import 'package:belajar_getx/widgets/tebu.dart';
@@ -13,6 +14,7 @@ void main() {
         // '/': (context) => const Home(),
         '/first': (context) => MyFirstGetX(),
         '/snack': (context) => const SnackbarGetX(),
+        '/bottom': (context) => BottomsheetGetx(),
       },
     ),
   );
@@ -44,6 +46,15 @@ class Home extends StatelessWidget {
               text: 'SnackBar & Dialog',
               textColor: Colors.black,
               bgcolor: Colors.cyan,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/bottom');
+              },
+              text: 'Bottom Sheet ',
+              textColor: Colors.black,
+              bgcolor: Colors.red,
             ),
             SizedBox(height: 20),
           ],
