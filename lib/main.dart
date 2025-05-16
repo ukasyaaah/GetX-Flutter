@@ -1,50 +1,55 @@
+import 'package:belajar_getx/pages/first_getx.dart';
+import 'package:belajar_getx/pages/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(GetMaterialApp(home: MyApp()));
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+      routes: {
+        // '/': (context) => const Home(),
+        '/first': (context) => MyFirstGetX(),
+        '/snack': (context) => const SnackbarGetX(),
+      },
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  final myMath = Get.put(Math());
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print('DI render');
     return Scaffold(
-      appBar: AppBar(title: Text('GETX')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(() => Text('${myMath.data}', style: TextStyle(fontSize: 60))),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    myMath.kurang();
-                  },
-                  child: Text('-'),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/first');
+              },
+              child: Text(
+                'First',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    myMath.tambah();
-                  },
-                  child: Text('+'),
+              ),
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.all(12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(17),
                 ),
-              ],
+                backgroundColor: Colors.black,
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
-
-class Math extends GetxController {
-  var data = 0.obs;
-  tambah() => data++;
-  kurang() => data--;
 }
