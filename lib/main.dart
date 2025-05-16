@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/snack');
               },
-              text: 'SnackBar',
+              text: 'SnackBar & Dialog',
               textColor: Colors.black,
               bgcolor: Colors.cyan,
             ),
