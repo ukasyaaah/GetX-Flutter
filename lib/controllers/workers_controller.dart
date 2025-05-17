@@ -13,14 +13,14 @@ class WorkersController extends GetxController {
     /// Dipantau hanya sekali
     once(dataPantau, (callback) => print('Cuma Sekali'));
 
-    /// Dipantau setelah 1 detik perubahan berhenti
+    /// Dipantau setelah X detik perubahan berhenti
     debounce(
       dataPantau,
       (callback) => print('Dipantau Setiap 1 detik setelah perubahan berhenti'),
       time: Duration(seconds: 1),
     );
 
-    /// Dipantau 1 detik selama perubahan belum berhenti
+    /// Dipantau X detik selama perubahan belum berhenti
     interval(
       dataPantau,
       (callback) => print('Dipantau Setiap 1 detik setelah perubahan berhenti'),

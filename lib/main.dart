@@ -12,16 +12,40 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
-      routes: {
-        // '/': (context) => const Home(),
-        '/first': (context) => MyFirstGetX(),
-        '/snack': (context) => const SnackbarGetX(),
-        '/bottom': (context) => const BottomsheetGetx(),
-        '/state': (context) => StateManagement(),
-        '/RX': (context) => TipedataReactive(),
-        '/WORK': (context) => Wokkkkkkkeers(),
-      },
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => Home()),
+        GetPage(
+          name: '/first',
+          page: () => MyFirstGetX(),
+          transition: Transition.fade,
+        ),
+        GetPage(
+          name: '/snack',
+          page: () => SnackbarGetX(),
+          transition: Transition.circularReveal,
+        ),
+        GetPage(
+          name: '/bottom',
+          page: () => BottomsheetGetx(),
+          transition: Transition.cupertino,
+        ),
+        GetPage(
+          name: '/state',
+          page: () => StateManagement(),
+          transition: Transition.downToUp,
+        ),
+        GetPage(
+          name: '/RX',
+          page: () => TipedataReactive(),
+          transition: Transition.fadeIn,
+        ),
+        GetPage(
+          name: '/WORK',
+          page: () => Wokkkkkkkeers(),
+          transition: Transition.topLevel,
+        ),
+      ],
     ),
   );
 }
