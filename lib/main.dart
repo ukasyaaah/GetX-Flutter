@@ -1,4 +1,5 @@
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
+import './pages/workers.dart';
 import 'package:belajar_getx/pages/tipedata_reactive.dart';
 import './pages/state_management.dart';
 import 'package:belajar_getx/pages/first_getx.dart';
@@ -16,9 +17,10 @@ void main() {
         // '/': (context) => const Home(),
         '/first': (context) => MyFirstGetX(),
         '/snack': (context) => const SnackbarGetX(),
-        '/bottom': (context) => BottomsheetGetx(),
+        '/bottom': (context) => const BottomsheetGetx(),
         '/state': (context) => StateManagement(),
         '/RX': (context) => TipedataReactive(),
+        '/WORK': (context) => Wokkkkkkkeers(),
       },
     ),
   );
@@ -77,6 +79,15 @@ class Home extends StatelessWidget {
               text: 'Reactive Variable',
               textColor: Colors.black,
               bgcolor: Colors.green,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/WORK');
+              },
+              text: 'Workers GetX',
+              textColor: Colors.black,
+              bgcolor: Colors.orange,
             ),
             SizedBox(height: 20),
           ],
