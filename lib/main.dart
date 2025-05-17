@@ -1,4 +1,5 @@
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
+import 'package:belajar_getx/pages/tipedata_reactive.dart';
 import './pages/state_management.dart';
 import 'package:belajar_getx/pages/first_getx.dart';
 import 'package:belajar_getx/pages/snackbar.dart';
@@ -17,6 +18,7 @@ void main() {
         '/snack': (context) => const SnackbarGetX(),
         '/bottom': (context) => BottomsheetGetx(),
         '/state': (context) => StateManagement(),
+        '/RX': (context) => TipedataReactive(),
       },
     ),
   );
@@ -66,6 +68,15 @@ class Home extends StatelessWidget {
               text: 'State Manager',
               textColor: Colors.black,
               bgcolor: Colors.limeAccent,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/RX');
+              },
+              text: 'Reactive Variable',
+              textColor: Colors.black,
+              bgcolor: Colors.green,
             ),
             SizedBox(height: 20),
           ],
