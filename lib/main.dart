@@ -1,4 +1,5 @@
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
+import './pages/state_management.dart';
 import 'package:belajar_getx/pages/first_getx.dart';
 import 'package:belajar_getx/pages/snackbar.dart';
 import 'package:belajar_getx/widgets/tebu.dart';
@@ -15,6 +16,7 @@ void main() {
         '/first': (context) => MyFirstGetX(),
         '/snack': (context) => const SnackbarGetX(),
         '/bottom': (context) => BottomsheetGetx(),
+        '/state': (context) => StateManagement(),
       },
     ),
   );
@@ -33,7 +35,7 @@ class Home extends StatelessWidget {
           children: [
             Tebu(
               onPressed: () {
-                Navigator.of(context).pushNamed('/first');
+                Get.toNamed('/first');
               },
               text: 'First',
               bgcolor: Colors.black,
@@ -41,7 +43,7 @@ class Home extends StatelessWidget {
             SizedBox(height: 20),
             Tebu(
               onPressed: () {
-                Navigator.of(context).pushNamed('/snack');
+                Get.toNamed('/snack');
               },
               text: 'SnackBar & Dialog',
               textColor: Colors.black,
@@ -50,11 +52,20 @@ class Home extends StatelessWidget {
             SizedBox(height: 20),
             Tebu(
               onPressed: () {
-                Navigator.of(context).pushNamed('/bottom');
+                Get.toNamed('/bottom');
               },
               text: 'Bottom Sheet ',
               textColor: Colors.black,
               bgcolor: Colors.red,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/state');
+              },
+              text: 'State Manager',
+              textColor: Colors.black,
+              bgcolor: Colors.limeAccent,
             ),
             SizedBox(height: 20),
           ],
