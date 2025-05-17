@@ -119,6 +119,71 @@ class TipedataReactive extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Obx(
+                () => Text('${tipeC.dataList}', style: TextStyle(fontSize: 20)),
+              ),
+              Row(
+                children: [
+                  Tebu(
+                    onPressed: () {
+                      tipeC.tambahList();
+                    },
+                    text: 'Tambah Data',
+                    bgcolor: Colors.purpleAccent,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Obx(
+                () => Text('${tipeC.dataSet}', style: TextStyle(fontSize: 20)),
+              ),
+              Row(
+                children: [
+                  Tebu(
+                    onPressed: () {
+                      tipeC.tambahSet();
+                    },
+                    text: 'Tambah Data Set',
+                    bgcolor: Colors.teal,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Divider(thickness: 2),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: Obx(
+                  () => ListTile(
+                    leading: CircleAvatar(
+                      child: Center(child: Text('${tipeC.dataMap['id']}')),
+                    ),
+                    title: Text('${tipeC.dataMap['kota']}'),
+                    subtitle: Text('${tipeC.dataMap['prov']}'),
+                  ),
+                ),
+              ),
+              Tebu(
+                onPressed: () {
+                  tipeC.ubahMap();
+                },
+                text: 'Ganti',
+                bgcolor: Colors.blue,
+              ),
+            ],
+          ),
         ],
       ),
     );

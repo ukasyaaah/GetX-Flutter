@@ -22,12 +22,12 @@ class Tebu extends StatelessWidget {
         text,
         style: TextStyle(
           color: textColor ?? Colors.white,
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
       style: TextButton.styleFrom(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         backgroundColor: bgcolor,
       ),
