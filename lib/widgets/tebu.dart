@@ -27,8 +27,8 @@ class Tebu extends StatelessWidget {
         ),
       ),
       style: TextButton.styleFrom(
-        padding: EdgeInsets.all(10),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        padding: EdgeInsets.all(13),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
         backgroundColor: bgcolor,
       ),
     );
