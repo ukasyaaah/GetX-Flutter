@@ -71,7 +71,7 @@ class Home extends StatelessWidget {
           children: [
             Tebu(
               onPressed: () {
-                Get.toNamed('/first');
+                Get.to('/first');
               },
               text: 'First',
               bgcolor: Colors.black,
