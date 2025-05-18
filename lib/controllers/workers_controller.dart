@@ -24,7 +24,7 @@ class WorkersController extends GetxController {
     interval(
       dataPantau,
       (callback) => print('Dipantau Setiap 1 detik setelah perubahan berhenti'),
-      time: Duration(seconds: 1),
+      time: Duration (seconds: 1),
     );
 
     super.onInit();

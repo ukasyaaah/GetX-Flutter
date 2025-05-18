@@ -1,4 +1,6 @@
+import 'package:belajar_getx/controllers/page_satu_controller.dart';
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
+import 'package:belajar_getx/pages/page_satu.dart';
 import './pages/workers.dart';
 import 'package:belajar_getx/pages/tipedata_reactive.dart';
 import './pages/state_management.dart';
@@ -45,14 +47,20 @@ void main() {
           page: () => Wokkkkkkkeers(),
           transition: Transition.topLevel,
         ),
+        GetPage(
+          name: '/depe',
+          page: () => PageSatu(),
+          transition: Transition.rightToLeftWithFade,
+          binding: BindingsBuilder(
+            () => Get.lazyPut(() => PageSatuController()),
+          ),
+        ),
       ],
     ),
   );
 }
 
 class Home extends StatelessWidget {
-  const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,6 +120,15 @@ class Home extends StatelessWidget {
               text: 'Workers GetX',
               textColor: Colors.black,
               bgcolor: Colors.orange,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/depe');
+              },
+              text: 'Dependecy Management',
+              textColor: Colors.black,
+              bgcolor: Colors.lime,
             ),
             SizedBox(height: 20),
           ],
