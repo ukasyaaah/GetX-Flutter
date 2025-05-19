@@ -12,7 +12,7 @@ class BindingPage extends StatelessWidget {
       appBar: AppBar(title: Text('Belajar Bnding')),
       body: Center(
         child: Tebu(
-          onPressed: () => Get.to(MyFirstGetX()),
+          onPressed: () => Get.to(() => MyFirstGetX()),
           text: 'Go to Counter Page',
           bgcolor: Colors.pink,
         ),

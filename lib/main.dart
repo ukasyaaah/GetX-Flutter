@@ -1,3 +1,4 @@
+import 'package:belajar_getx/bindings/worker_binding.dart';
 import 'package:belajar_getx/controllers/page_satu_controller.dart';
 import 'package:belajar_getx/controllers/state_controller.dart';
 import 'package:belajar_getx/controllers/tdreact_controller.dart';
@@ -42,23 +43,20 @@ void main() {
           page: () => StateManagement(),
           transition: Transition.downToUp,
 
-          /// Kalo mau masuk page state, harus put stateController
+          /// Artinya : Kalo mau masuk page state, harus put stateController
           binding: BindingsBuilder.put(() => StateController()),
         ),
         GetPage(
           name: '/RX',
           page: () => TipedataReactive(),
           transition: Transition.fadeIn,
-          bindings: [
-            BindingsBuilder.put(() => TipeController()),
-            BindingsBuilder.put(() => WorkersController()),
-          ],
+          bindings: [BindingsBuilder.put(() => TipeController())],
         ),
         GetPage(
           name: '/WORK',
           page: () => Wokkkkkkkeers(),
           transition: Transition.topLevel,
-          binding: BindingsBuilder.put(() => WorkersController()),
+          binding: WorkerBinding(),
         ),
         GetPage(
           name: '/depe',
@@ -72,6 +70,7 @@ void main() {
           name: '/binding',
           page: () => BindingPage(),
           transition: Transition.topLevel,
+          binding: BindingsBuilder(() => Get.lazyPut(() => Math())),
         ),
       ],
     ),
@@ -101,7 +100,7 @@ class Home extends StatelessWidget {
               },
               text: 'SnackBar & Dialog',
               textColor: Colors.black,
-              bgcolor: Colors.cyan,
+              bgcolor: Colors.red,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -110,7 +109,7 @@ class Home extends StatelessWidget {
               },
               text: 'Bottom Sheet ',
               textColor: Colors.black,
-              bgcolor: Colors.red,
+              bgcolor: Colors.yellow,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -119,7 +118,7 @@ class Home extends StatelessWidget {
               },
               text: 'State Manager',
               textColor: Colors.black,
-              bgcolor: Colors.limeAccent,
+              bgcolor: Colors.orange,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -128,7 +127,7 @@ class Home extends StatelessWidget {
               },
               text: 'Reactive Variable',
               textColor: Colors.black,
-              bgcolor: Colors.green,
+              bgcolor: Colors.grey,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -137,7 +136,7 @@ class Home extends StatelessWidget {
               },
               text: 'Workers GetX',
               textColor: Colors.black,
-              bgcolor: Colors.orange,
+              bgcolor: Colors.lightGreenAccent,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -146,7 +145,7 @@ class Home extends StatelessWidget {
               },
               text: 'Dependecy Management',
               textColor: Colors.black,
-              bgcolor: Colors.lime,
+              bgcolor: Colors.blue,
             ),
             SizedBox(height: 20),
             Tebu(
@@ -155,7 +154,7 @@ class Home extends StatelessWidget {
               },
               text: 'Binding',
               textColor: Colors.black,
-              bgcolor: Colors.pink,
+              bgcolor: Colors.deepPurpleAccent,
             ),
             SizedBox(height: 20),
           ],
