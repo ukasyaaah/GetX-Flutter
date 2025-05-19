@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Wokkkkkkkeers extends StatelessWidget {
-  final dataC = Get.put(WorkersController());
+  WorkersController dataC = Get.find();
 
   @override
   Widget build(BuildContext context) {

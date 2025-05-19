@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StateManagement extends StatelessWidget {
-  final stC = Get.put(StateController());
+  StateController stC = Get.find();
 
   @override
   Widget build(BuildContext context) {

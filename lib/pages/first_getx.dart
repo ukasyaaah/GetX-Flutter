@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
 class MyFirstGetX extends StatelessWidget {
-  final myMath = Get.put(Math());
+  Math myMath = Get.find();
 
   @override
   Widget build(BuildContext context) {

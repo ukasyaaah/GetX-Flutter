@@ -1,4 +1,8 @@
 import 'package:belajar_getx/controllers/page_satu_controller.dart';
+import 'package:belajar_getx/controllers/state_controller.dart';
+import 'package:belajar_getx/controllers/tdreact_controller.dart';
+import 'package:belajar_getx/controllers/workers_controller.dart';
+import 'package:belajar_getx/pages/binding_page.dart';
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
 import 'package:belajar_getx/pages/page_satu.dart';
 import './pages/workers.dart';
@@ -21,6 +25,7 @@ void main() {
           name: '/first',
           page: () => MyFirstGetX(),
           transition: Transition.fade,
+          binding: BindingsBuilder.put(() => Math()),
         ),
         GetPage(
           name: '/snack',
@@ -36,16 +41,24 @@ void main() {
           name: '/state',
           page: () => StateManagement(),
           transition: Transition.downToUp,
+
+          /// Kalo mau masuk page state, harus put stateController
+          binding: BindingsBuilder.put(() => StateController()),
         ),
         GetPage(
           name: '/RX',
           page: () => TipedataReactive(),
           transition: Transition.fadeIn,
+          bindings: [
+            BindingsBuilder.put(() => TipeController()),
+            BindingsBuilder.put(() => WorkersController()),
+          ],
         ),
         GetPage(
           name: '/WORK',
           page: () => Wokkkkkkkeers(),
           transition: Transition.topLevel,
+          binding: BindingsBuilder.put(() => WorkersController()),
         ),
         GetPage(
           name: '/depe',
@@ -54,6 +67,11 @@ void main() {
           binding: BindingsBuilder(
             () => Get.lazyPut(() => PageSatuController()),
           ),
+        ),
+        GetPage(
+          name: '/binding',
+          page: () => BindingPage(),
+          transition: Transition.topLevel,
         ),
       ],
     ),
@@ -71,7 +89,7 @@ class Home extends StatelessWidget {
           children: [
             Tebu(
               onPressed: () {
-                Get.to('/first');
+                Get.toNamed('/first');
               },
               text: 'First',
               bgcolor: Colors.black,
@@ -129,6 +147,15 @@ class Home extends StatelessWidget {
               text: 'Dependecy Management',
               textColor: Colors.black,
               bgcolor: Colors.lime,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/binding');
+              },
+              text: 'Binding',
+              textColor: Colors.black,
+              bgcolor: Colors.pink,
             ),
             SizedBox(height: 20),
           ],
