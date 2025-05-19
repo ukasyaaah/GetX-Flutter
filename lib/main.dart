@@ -1,11 +1,14 @@
 import 'package:belajar_getx/bindings/worker_binding.dart';
+import 'package:belajar_getx/controllers/login_controller.dart';
 import 'package:belajar_getx/controllers/page_satu_controller.dart';
 import 'package:belajar_getx/controllers/state_controller.dart';
 import 'package:belajar_getx/controllers/tdreact_controller.dart';
 import 'package:belajar_getx/controllers/workers_controller.dart';
 import 'package:belajar_getx/pages/binding_page.dart';
 import 'package:belajar_getx/pages/bottomsheet_getx.dart';
+import 'package:belajar_getx/pages/login.dart';
 import 'package:belajar_getx/pages/page_satu.dart';
+import 'package:get_storage/get_storage.dart';
 import './pages/workers.dart';
 import 'package:belajar_getx/pages/tipedata_reactive.dart';
 import './pages/state_management.dart';
@@ -15,7 +18,8 @@ import 'package:belajar_getx/widgets/tebu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
@@ -71,6 +75,12 @@ void main() {
           page: () => BindingPage(),
           transition: Transition.topLevel,
           binding: BindingsBuilder(() => Get.lazyPut(() => Math())),
+        ),
+        GetPage(
+          name: '/login',
+          page: () => LoginPage(),
+          transition: Transition.topLevel,
+          binding: BindingsBuilder(() => Get.lazyPut(() => LoginController())),
         ),
       ],
     ),
@@ -155,6 +165,15 @@ class Home extends StatelessWidget {
               text: 'Binding',
               textColor: Colors.black,
               bgcolor: Colors.deepPurpleAccent,
+            ),
+            SizedBox(height: 20),
+            Tebu(
+              onPressed: () {
+                Get.toNamed('/login');
+              },
+              text: 'Login (Get Storage)',
+              textColor: Colors.white,
+              bgcolor: Colors.brown,
             ),
             SizedBox(height: 20),
           ],
